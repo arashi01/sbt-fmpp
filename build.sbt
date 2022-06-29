@@ -1,11 +1,12 @@
-sbtPlugin := true
-
 name := "sbt-fmpp"
 
 version := "0.3-SNAPSHOT"
 
 organization := "com.github.sbt"
 
-scalaVersion        := "2.10.0"
+enablePlugins(SbtPlugin)
 
-crossScalaVersions  := Seq("2.9.0-1", "2.9.1-1", "2.9.2", "2.10.0")
+scriptedLaunchOpts :=  scriptedLaunchOpts.value ++ Seq("-Dplugin.version=" + version.value)
+
+scriptedBufferLog := false
+  
